@@ -74,7 +74,7 @@ public class LinkedWith2References {
         if (this.isEmpty()) {
             throw new IllegalAccessException("The structure is empty. Values cannot be deleted.");
         } else {
-            if (this.first.hasValue(value)) { // Eliminamos el primero
+            if (this.first.hasValue(value)) { // Comprobamos el primer elemento y lo eliminamos
                 if (this.size() == 1) { // Cuando solo hay un elemento
                     this.elementsCount--;
                     this.first = null;
@@ -92,7 +92,15 @@ public class LinkedWith2References {
                 if(current.getNext() == null) {
                     throw new IllegalAccessException("The value is not contained in the structure");
                 } else {
-                    //... delete
+                    //We are about to delete an element, but we first check if it is the last one
+                    boolean isLastElement = (current.getNext() == this.last);
+                    
+                    if(isLastElement) {
+                        this.last = current;
+                    }  else {
+                        current.setNext(current.getNext().getNext());
+                    }
+                    this.elementsCount--;
                 }
             }
         }
@@ -100,8 +108,13 @@ public class LinkedWith2References {
 
     @Override
     public String toString() {
-
-        return "";
+        StringBuilder sb = new StringBuilder();
+        
+        for(Node current = this.first; current != null; current = current.getNext()) {
+            sb.append(current.getValue()).append(" ");
+        }
+        
+        return sb.toString();
     }
 
 }
