@@ -43,7 +43,7 @@ public class LinkedWith2References {
     public void addFirst(int value) {
         Node newNode = new Node(value, this.first);
         this.first = newNode;
-        if (this.elementsCount == 1) {
+        if (this.elementsCount == 0) {
             this.last = newNode;
         }
         this.elementsCount++;
@@ -64,31 +64,29 @@ public class LinkedWith2References {
     public void remove(int value) throws IllegalAccessException {
         if (this.isEmpty()) {
             throw new IllegalAccessException("The structure is empty. Values cannot be deleted.");
+        }
+
+        if (this.first.hasValue(value)) {
+            this.first = this.first.getNext();
+            if (this.first == null) {
+                this.last = null;
+            }
         } else {
-            if (this.first != null && this.first.hasValue(value)) { // Comprobamos el primer elemento y lo eliminamos
-                this.first = this.first.getNext();
-                this.elementsCount--;
-            } else { // Buscamos el elemento a borrar
-                Node current = this.first;
-                while (current.getNext() != null && !current.getNext().hasValue(value)) {
-                    current = current.getNext();
-                }
+            Node current = this.first;
+            while (current.getNext() != null && !current.getNext().hasValue(value)) {
+                current = current.getNext();
+            }
 
-                if (current.getNext() == null) { // We reached the end of the list
-                    throw new IllegalAccessException("The value is not contained in the structure");
-                } else {
-                    //We are about to delete an element, but we first check if it is the last one
-                    boolean isLastElement = (current.getNext() == this.last);
+            if (current.getNext() == null) {
+                throw new IllegalAccessException("Value not found in the structure.");
+            }
 
-                    if (isLastElement) {
-                        this.last = current;
-                    } else {
-                        current.setNext(current.getNext().getNext());
-                    }
-                    this.elementsCount--;
-                }
+            current.setNext(current.getNext().getNext());
+            if (current.getNext() == null) {
+                this.last = current;
             }
         }
+        this.elementsCount--;
     }
 
     @Override
