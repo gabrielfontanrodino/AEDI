@@ -21,11 +21,11 @@ public class Student {
     }
 
     public String toString() {
-        StringBuilder tostring = new StringBuilder();
-        tostring.append("Student: ");
-        tostring.append(name).append(", ");
-        tostring.append(number).append("\n");
+        StringBuilder sb = new StringBuilder();
+        sb.append("Student: ");
+        sb.append(name).append(", ");
+        sb.append(number).append("\n");
 
-        return tostring.toString();
+        return sb.toString();
     }
 }

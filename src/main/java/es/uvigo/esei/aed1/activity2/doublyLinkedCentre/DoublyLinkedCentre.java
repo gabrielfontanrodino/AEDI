@@ -2,7 +2,6 @@ package es.uvigo.esei.aed1.activity2.doublyLinkedCentre;
 
 public class DoublyLinkedCentre {
 
-
     public DoublyLinkedCentre() {
 
     }

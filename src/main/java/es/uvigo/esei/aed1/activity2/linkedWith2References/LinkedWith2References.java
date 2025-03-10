@@ -5,7 +5,6 @@ import es.uvigo.esei.aed1.commonLinked.Node;
 public class LinkedWith2References {
 
     private Node first, last;
-
     private int elementsCount;
 
     public LinkedWith2References() {

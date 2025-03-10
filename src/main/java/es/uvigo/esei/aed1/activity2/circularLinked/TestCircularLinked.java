@@ -16,7 +16,7 @@ public class TestCircularLinked {
         System.out.println("The number of values is: " + list.size());
         System.out.println("The value 1 is contained:  " + list.numberOfOccurrences(1) + " times");
         System.out.println("Is contained the 15? : " + list.contains(15));
-        System.out.println("Remove value 1: ");
+        System.out.println("Removed value 1...");
         list.removeFirst();
         System.out.println("The value 1 is contained:  " + list.numberOfOccurrences(1) + " times");
         System.out.println("The first in the list: " + list.firstValue());

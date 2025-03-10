@@ -13,26 +13,26 @@ public class MultipleSorted {
     }
 
     public String printOrderedByName() {
-        StringBuilder tostring = new StringBuilder();
+        StringBuilder sb = new StringBuilder();
 
-        tostring.append("\n");
+        sb.append("\n");
         for (MultipleNode current = this.firstName; current != null; current = current.getNextName()) {
-            tostring.append(current.getStudent());
+            sb.append(current.getStudent());
         }
 
-        return tostring.toString();
+        return sb.toString();
     }
 
 
     public String printOrderedByNumber() {
-        StringBuilder tostring = new StringBuilder();
+        StringBuilder sb = new StringBuilder();
 
-        tostring.append("\n");
+        sb.append("\n");
         for (MultipleNode current = this.firstNumber; current != null; current = current.getNextNumber()) {
-            tostring.append(current.getStudent());
+            sb.append(current.getStudent());
         }
 
-        return tostring.toString();
+        return sb.toString();
     }
 
 }
