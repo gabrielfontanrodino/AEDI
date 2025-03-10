@@ -7,6 +7,7 @@ public class Activity0Exercise16 {
     private static final Scanner input = new Scanner(System.in);
 
     //exercise 16
+
     /**
      * Calcula el maximo de los enteros almacenados en el array
      *

@@ -8,6 +8,7 @@ public class Activity0Exercise17 {
     private static final Scanner input = new Scanner(System.in).useLocale(Locale.ENGLISH);
 
     //exercise 17
+
     /**
      * muestra un mensaje por pantalla y lee un número entero de teclado
      *
@@ -33,7 +34,7 @@ public class Activity0Exercise17 {
     /**
      * muestra un mensaje por pantalla y lee una matriz de números reales
      *
-     * @param matrix que almacena números reales
+     * @param matrix  que almacena números reales
      * @param message el mensaje a visualizar
      */
     public static void readNotes(double[][] matrix, String message) {
@@ -52,7 +53,7 @@ public class Activity0Exercise17 {
      * muestra por pantalla un mensaje y el contenido de una matriz de números
      * reales
      *
-     * @param matrix que almacena numeros reales
+     * @param matrix  que almacena numeros reales
      * @param message el mensaje a visualizar
      */
     public static void printNotes(double[][] matrix, String message) {

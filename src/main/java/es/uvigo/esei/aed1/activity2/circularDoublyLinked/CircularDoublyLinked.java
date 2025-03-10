@@ -1,54 +1,50 @@
-
 package es.uvigo.esei.aed1.activity2.circularDoublyLinked;
-
-import es.uvigo.esei.aed1.commonLinked.DoubleNode;
 
 public class CircularDoublyLinked {
 
-  
 
-  public CircularDoublyLinked() {
-    
-  }
+    public CircularDoublyLinked() {
 
-  public boolean isEmpty() {
-    return true;
-  }
+    }
 
-  public int size() {
-    return 0;
-  }
+    public boolean isEmpty() {
+        return true;
+    }
 
-  public int numberOfOccurrences(int value) {
-    
-    return 0;
-  }
+    public int size() {
+        return 0;
+    }
 
-  public boolean contains(int value) {
-    
-    return true;
-  }
+    public int numberOfOccurrences(int value) {
 
-  public int firstValue() throws NullPointerException {
-    
-    return 0;
-  }
+        return 0;
+    }
 
-  public void addLast(int value) {
-    
-  }
+    public boolean contains(int value) {
 
-  public void removeFirst() {
-    
-  }
+        return true;
+    }
 
-  public void remove(int value) {
-    
-  }
+    public int firstValue() throws NullPointerException {
 
-  @Override
-  public String toString() {
-    
-    return "";
-  }
+        return 0;
+    }
+
+    public void addLast(int value) {
+
+    }
+
+    public void removeFirst() {
+
+    }
+
+    public void remove(int value) {
+
+    }
+
+    @Override
+    public String toString() {
+
+        return "";
+    }
 }

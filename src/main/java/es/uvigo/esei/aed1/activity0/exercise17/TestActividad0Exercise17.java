@@ -1,8 +1,6 @@
 package es.uvigo.esei.aed1.activity0.exercise17;
 
-import static es.uvigo.esei.aed1.activity0.exercise17.Activity0Exercise17.printNotes;
-import static es.uvigo.esei.aed1.activity0.exercise17.Activity0Exercise17.readNotes;
-import static es.uvigo.esei.aed1.activity0.exercise17.Activity0Exercise17.readNumber;
+import static es.uvigo.esei.aed1.activity0.exercise17.Activity0Exercise17.*;
 
 public class TestActividad0Exercise17 {
 

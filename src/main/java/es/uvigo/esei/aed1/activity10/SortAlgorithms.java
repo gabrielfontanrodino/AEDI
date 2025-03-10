@@ -1,23 +1,18 @@
 package es.uvigo.esei.aed1.activity10;
 
-import es.uvigo.esei.aed1.tads.list.LinkedList;
-import es.uvigo.esei.aed1.tads.list.List;
-import es.uvigo.esei.aed1.tads.queue.LinkedQueue;
-import es.uvigo.esei.aed1.tads.queue.Queue;
-
 public class SortAlgorithms {
 
-//Exercise 1
+    //Exercise 1
     public static void bubbleSort2(int[] aux) {
 
     }
 
-// Exercise 2
+    // Exercise 2
     public static void shellSort(int[] aux) {
 
     }
 
-// Exercise 3
+    // Exercise 3
 //Produce: el dígito de número, que está en la posición pasada. 
 //Para un numero de tres dígitos, pasada tomará los valores 0, 1 y 2, 
 //devolviendo las unidades, decenas o centenas respectivamente.
@@ -30,22 +25,22 @@ public class SortAlgorithms {
 
     }
 
-// Exercise 4
+    // Exercise 4
     public static void selectionSort(int[] aux) {
 
     }
 
-//Exercise 5
+    //Exercise 5
     public static void countSortDec(int[] aux) {
 
     }
 
-// Exercise 6 
+    // Exercise 6
     public static void beadSort(int[] aux) {
 
     }
 
-// Exercise 7    
+    // Exercise 7
     private static int searchPositionPivot(int[] aux, int beginning, int fin) {
         int first = aux[beginning];
         int k = beginning + 1;

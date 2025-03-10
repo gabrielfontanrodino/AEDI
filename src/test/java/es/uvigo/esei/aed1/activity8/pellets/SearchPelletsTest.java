@@ -1,17 +1,18 @@
 package es.uvigo.esei.aed1.activity8.pellets;
 
 import org.junit.jupiter.api.Test;
-import static org.junit.jupiter.api.Assertions.*;
+
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class SearchPelletsTest {
 
     private final int[][] coastGalician = {{1, 0, 0, 1, 1, 0, 1},
-                                            {0, 1, 1, 0, 1, 1, 1},
-                                            {1, 0, 1, 1, 0, 0, 0},
-                                            {0, 1, 0, 1, 0, 1, 0},
-                                            {1, 1, 0, 0, 1, 1, 1}};
+            {0, 1, 1, 0, 1, 1, 1},
+            {1, 0, 1, 1, 0, 0, 0},
+            {0, 1, 0, 1, 0, 1, 0},
+            {1, 1, 0, 0, 1, 1, 1}};
 
-  
+
     /**
      * Test of searchPellets method, of class SearchPellets.
      */

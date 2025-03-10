@@ -1,6 +1,5 @@
 package es.uvigo.esei.aed1.activity9.implementation;
 
-import es.uvigo.esei.aed1.tads.list.LinkedList;
 import es.uvigo.esei.aed1.tads.list.List;
 
 public class DinamicHashTable<T> implements HashTable<T> {
@@ -22,20 +21,20 @@ public class DinamicHashTable<T> implements HashTable<T> {
 
     @Override
     public boolean add(T elem) {
-        
+
         return false;
     }
 
     @Override
     public boolean search(T elem) {
-        
+
         return false;
     }
 
     @Override
     public boolean remove(T elem) {
-        
-        return false;       
+
+        return false;
     }
 
     @Override

@@ -1,13 +1,9 @@
-
 package es.uvigo.esei.aed1.activity6.implementation;
-
-import static java.util.Objects.requireNonNull;
-
 
 public class RoundLinkedQueue<T> implements CustomQueue<T> {
 
     public RoundLinkedQueue() {
-        
+
     }
 
     @Override
@@ -22,17 +18,17 @@ public class RoundLinkedQueue<T> implements CustomQueue<T> {
 
     @Override
     public T first() throws EmptyException {
-      return null;
+        return null;
     }
 
     @Override
-    public void add(T value) throws NullPointerException{
+    public void add(T value) throws NullPointerException {
 
     }
 
     @Override
     public T remove() throws EmptyException {
-      return null;
+        return null;
     }
 
     @Override

@@ -1,4 +1,3 @@
-
 package es.uvigo.esei.aed1.activity8.pellets;
 
 public class Position {

@@ -43,13 +43,13 @@ public class DoublyLinked {
 
     public void addFirst(int value) {
         DoubleNode newNode = new DoubleNode(null, value, this.first);
-        
+
         if (this.isEmpty()) {
             this.last = newNode;
         } else {
             this.first.setPrevious(newNode);
         }
-        
+
         this.first = newNode;
         this.elementsCount++;
     }
@@ -62,7 +62,7 @@ public class DoublyLinked {
         } else {
             this.last.setNext(newNode);
         }
-        
+
         this.last = newNode;
         this.elementsCount++;
     }

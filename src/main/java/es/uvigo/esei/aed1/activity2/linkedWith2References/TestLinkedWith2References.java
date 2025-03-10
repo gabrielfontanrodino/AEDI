@@ -19,7 +19,7 @@ public class TestLinkedWith2References {
         System.out.println("Is contained the 15? : " + list.contains(15));
 
         int occurrences = list.numberOfOccurrences(10);
-        for(int i = 0; i < occurrences; i++) {
+        for (int i = 0; i < occurrences; i++) {
             System.out.println("Removing the value 10...");
             removeValue(list, 10);
             System.out.println("The value 10 is contained:  " + list.numberOfOccurrences(10) + " times");

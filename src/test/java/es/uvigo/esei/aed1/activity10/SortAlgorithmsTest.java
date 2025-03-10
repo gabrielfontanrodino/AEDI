@@ -1,7 +1,8 @@
 package es.uvigo.esei.aed1.activity10;
 
 import org.junit.jupiter.api.Test;
-import static org.junit.jupiter.api.Assertions.*;
+
+import static org.junit.jupiter.api.Assertions.assertArrayEquals;
 
 public class SortAlgorithmsTest {
 
