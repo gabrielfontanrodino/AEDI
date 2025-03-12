@@ -28,7 +28,7 @@ public class MultipleNode {
         return this.nextNumber;
     }
 
-    public void setAlumno(Student student) {
+    public void setStudent(Student student) {
         this.student = student;
     }
 

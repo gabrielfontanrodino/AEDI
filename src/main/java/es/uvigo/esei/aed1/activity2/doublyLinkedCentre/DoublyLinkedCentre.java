@@ -68,10 +68,18 @@ public class DoublyLinkedCentre {
     public String toString() {
         StringBuilder sb = new StringBuilder();
         DoubleNode current = this.center;
+
         while (current != null) {
             sb.append(current.getValue()).append(" ");
             current = current.getNext();
         }
+
+        current = (this.center != null) ? this.center.getPrevious() : null;
+        while (current != null) {
+            sb.insert(0, current.getValue() + " ");
+            current = current.getPrevious();
+        }
+
         return sb.toString();
     }
 

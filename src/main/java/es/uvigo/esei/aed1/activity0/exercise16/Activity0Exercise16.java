@@ -55,9 +55,7 @@ public class Activity0Exercise16 {
             sumaTotal += array[i];
         }
 
-        int media = sumaTotal / array.length;
-
-        return media;
+        return (double) sumaTotal / array.length;
     }
 
     public static int readInteger(String message) {
