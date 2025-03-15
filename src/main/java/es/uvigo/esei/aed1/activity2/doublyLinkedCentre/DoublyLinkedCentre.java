@@ -2,13 +2,15 @@ package es.uvigo.esei.aed1.activity2.doublyLinkedCentre;
 
 import es.uvigo.esei.aed1.commonLinked.DoubleNode;
 
+//Lo bueno es que acelera mucho la búsqueda en listas muy grandes, ya que no es necesario
+// recorrer toda la lista para encontrar un elemento.
 public class DoublyLinkedCentre {
 
-    private DoubleNode center;
-    private int elementsCount;
+    private DoubleNode centre;
+    private int elementsCount; //TODO: Modificar por 2 atributos, uno que sea del centro a la izquierda y otro del centro a la derecha
 
     public DoublyLinkedCentre() {
-        this.center = null; // Inicializa el último nodo como null
+        this.centre = null; // Inicializa el último nodo como null
         this.elementsCount = 0; // Inicializa el tamaño de la lista como 0
     }
 
@@ -22,7 +24,7 @@ public class DoublyLinkedCentre {
 
     public boolean contains(int value) {
         // Buscamos del centro a la derecha
-        DoubleNode current = this.center;
+        DoubleNode current = this.centre;
         while (current != null) {
             if (current.hasValue(value)) {
                 return true;
@@ -31,7 +33,7 @@ public class DoublyLinkedCentre {
         }
 
         // Comprobamos desde el centro a la izquierda (excluyendo el centro, ya que lo hemos comprobado antes)
-        current = (this.center != null) ? this.center.getPrevious() : null; // se supone que el centro no es null, pero por si acaso xd
+        current = (this.centre != null) ? this.centre.getPrevious() : null; // se supone que el centro no es null, pero por si acaso xd
         while (current != null) {
             if (current.hasValue(value)) {
                 return true;
@@ -45,10 +47,10 @@ public class DoublyLinkedCentre {
     public void add(int value) {
         DoubleNode newNode = new DoubleNode(null, value, null);
         if (this.isEmpty()) {
-            this.center = newNode;
+            this.centre = newNode;
         } else {
             // Encuentra el nodo más a la derecha
-            DoubleNode rightmost = this.center;
+            DoubleNode rightmost = this.centre;
             while (rightmost.getNext() != null) {
                 rightmost = rightmost.getNext();
             }
@@ -58,7 +60,7 @@ public class DoublyLinkedCentre {
 
             // Ajustar el centro si el tamaño es par
             if (this.elementsCount % 2 == 0) { // Después de añadir un nuevo nodo, el tamaño de la lista es par
-                this.center = this.center.getNext();
+                this.centre = this.centre.getNext();
             }
         }
         this.elementsCount++;
@@ -67,14 +69,14 @@ public class DoublyLinkedCentre {
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder();
-        DoubleNode current = this.center;
+        DoubleNode current = this.centre;
 
         while (current != null) {
             sb.append(current.getValue()).append(" ");
             current = current.getNext();
         }
 
-        current = (this.center != null) ? this.center.getPrevious() : null;
+        current = (this.centre != null) ? this.centre.getPrevious() : null;
         while (current != null) {
             sb.insert(0, current.getValue() + " ");
             current = current.getPrevious();

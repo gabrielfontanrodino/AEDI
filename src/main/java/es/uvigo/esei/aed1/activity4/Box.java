@@ -21,21 +21,53 @@
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
  * THE SOFTWARE.
  */
-package activity4;
+package es.uvigo.esei.aed1.activity4;
 
 /**
  *
- * @author gfrodinho_esei.uvigo
- * @param <T>
+ * Interfaz que define una caja genérica que puede contener elementos de tipo T.
+ *
+ * @param <T> el tipo de elementos que la caja puede contener
+ *
+ * @autor gfrodinho_esei.uvigo
  */
 public interface Box<T> {
-    public void add(T value) throws NullPointerException;
-    
-    public void addBox(Box<T> box) throws NullPointerException;
-    
-    public boolean remove(T value);
-    
-    public T get() throws EmptyException;
-    
-    public int size();
+    /**
+     * Añade un valor a la caja.
+     *
+     * @param value el valor a añadir
+     * @throws NullPointerException si el valor es null
+     */
+    void add(T value) throws NullPointerException;
+
+    /**
+     * Añade todos los elementos de otra caja a esta caja.
+     *
+     * @param box la caja cuyos elementos se van a añadir
+     * @throws NullPointerException si la caja es null
+     */
+    void addBox(Box<T> box) throws NullPointerException;
+
+    /**
+     * Elimina un valor de la caja.
+     *
+     * @param value el valor a eliminar
+     * @return true si el valor fue eliminado, false en caso contrario
+     */
+    boolean remove(T value);
+
+    /**
+     * Obtiene un valor de la caja.
+     *
+     * @return el valor obtenido
+     * @throws EmptyException si la caja está vacía
+     */
+    T get() throws EmptyException;
+
+    /**
+     * Devuelve el número de elementos en la caja.
+     *
+     * @return el tamaño de la caja
+     */
+    int size();
 }

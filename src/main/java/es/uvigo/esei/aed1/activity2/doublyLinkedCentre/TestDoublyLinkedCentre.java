@@ -4,7 +4,7 @@ public class TestDoublyLinkedCentre {
 
     public static void main(String[] args) {
 
-        DoublyLinkedCentre list = new DoublyLinkedCentre();
+        DoublyLinkedCentreNew list = new DoublyLinkedCentreNew();
         System.out.println("list: " + list);
 
         for (int i = 10; i <= 20; i += 2) {
