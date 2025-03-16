@@ -143,7 +143,7 @@ public class DoublyLinkedCentreNew {
         DoubleNode current = this.centre;
 
         // Move to the leftmost node
-        while (current != null && current.getPrevious() != null) {
+        while (current.getPrevious() != null) {
             current = current.getPrevious();
         }
 

@@ -4,8 +4,8 @@ import es.uvigo.esei.aed1.commonLinked.DoubleNode;
 
 public class DoublyLinkedDummy {
 
-    private DoubleNode first;
-    private DoubleNode last;
+    private final DoubleNode first;
+    private final DoubleNode last;
     private int elementsCount;
 
     public DoublyLinkedDummy() {
@@ -24,31 +24,50 @@ public class DoublyLinkedDummy {
     }
 
     public int numberOfOccurrences(int value) {
-        return 0;
+        int count = 0;
+
+        for (DoubleNode current = this.first.getNext(); current != this.last; current = current.getNext()) {
+            if (current.hasValue(value)) {
+                count++;
+            }
+        }
+
+        return count;
     }
 
     public boolean contains(int value) {
-        return true;
+        DoubleNode current = this.first;
+        while (current != this.last && !current.hasValue(value)) {
+            current = current.getNext();
+        }
+
+        return current.hasValue(value);
     }
 
     public void addFirst(int value) {
-
+        DoubleNode newNode = new DoubleNode(this.first, value, this.first.getNext());
+        this.first.setNext(newNode);
+        newNode.getNext().setPrevious(newNode);
+        this.elementsCount++;
     }
 
     public void addLast(int value) {
-
+        DoubleNode newNode = new DoubleNode(this.last.getPrevious(), value, this.last);
+        newNode.getPrevious().setNext(newNode); // this.last.getPrevious().setNext(newNode);
+        this.last.setPrevious(newNode);
+        this.elementsCount++;
     }
 
     public void remove(int value) {
-        if(this.isEmpty()) {
+        if (this.isEmpty()) {
             System.out.println("The list is empty");
         } else {
             DoubleNode current = this.first.getNext();
-            while(current.getNext() != null && !current.hasValue(value)) {
+            while (current.getNext() != null && !current.hasValue(value)) {
                 current = current.getNext();
             }
 
-            if(current == this.last) {
+            if (current == this.last) {
                 System.out.println("The value " + value + " is not in the list");
             } else {
                 current.getPrevious().setNext(current.getNext());
@@ -60,7 +79,16 @@ public class DoublyLinkedDummy {
 
     @Override
     public String toString() {
-        return "";
+        StringBuilder sb = new StringBuilder();
+        sb.append("[");
+        for (DoubleNode current = this.first.getNext(); current != this.last; current = current.getNext()) {
+            sb.append(current.getValue());
+            if (current.getNext() != this.last) {
+                sb.append(", ");
+            }
+        }
+        sb.append("]");
+        return sb.toString();
     }
 
 }

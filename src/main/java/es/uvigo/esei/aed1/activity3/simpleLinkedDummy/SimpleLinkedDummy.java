@@ -85,4 +85,24 @@ public class SimpleLinkedDummy {
         }
     }
 
+    @Override
+    public String toString() {
+        StringBuilder sb = new StringBuilder();
+        Node current = this.first;
+
+        sb.append("[");
+
+        while(current != null) {
+            sb.append(current.getValue());
+            if(current.getNext() != null) {
+                sb.append(", ");
+            }
+            current = current.getNext();
+        }
+
+        sb.append("]");
+
+        return sb.toString();
+    }
+
 }

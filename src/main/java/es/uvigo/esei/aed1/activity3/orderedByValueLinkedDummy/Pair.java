@@ -7,27 +7,35 @@ public class Pair {
     private int value;
 
     public Pair(int counter, int value) {
-
+        this.counter = counter;
+        this.value = value;
     }
 
     public int getCounter() {
-        return 0;
+        return this.counter;
     }
 
     public int getValue() {
-        return 0;
+        return this.value;
     }
 
     public void setCounter(int counter) {
-
+        this.counter = counter;
     }
 
     public void setValue(int value) {
-
+        this.value = value;
     }
 
     @Override
     public String toString() {
-        return "";
+        StringBuilder sb = new StringBuilder();
+
+        sb.append("Pair(counter=");
+        sb.append(this.counter);
+        sb.append(", value=");
+        sb.append(this.value);
+
+        return sb.toString();
     }
 }
