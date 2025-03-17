@@ -3,7 +3,7 @@ package es.uvigo.esei.aed1.activity3.simpleLinkedDummy;
 import es.uvigo.esei.aed1.commonLinked.Node;
 
 public class SimpleLinkedDummy {
-    private Node first;
+    private final Node first;
     private int elementsCount;
 
     public SimpleLinkedDummy() {
@@ -88,7 +88,7 @@ public class SimpleLinkedDummy {
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder();
-        Node current = this.first;
+        Node current = this.first.getNext();
 
         sb.append("[");
 
