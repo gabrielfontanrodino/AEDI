@@ -2,16 +2,28 @@ package es.uvigo.esei.aed1.activity3.orderedLinkedDummy;
 
 import es.uvigo.esei.aed1.commonLinked.Node;
 
+/**
+ * Clase que representa una lista enlazada ordenada con un nodo ficticio.
+ */
 public class OrderedLinkedDummy {
 
     private final Node first;
     private int elementsCount;
 
+    /**
+     * Constructor que inicializa la lista con un nodo ficticio y sin elementos.
+     */
     public OrderedLinkedDummy() {
         this.first = new Node(-0, null);
         this.elementsCount = 0;
     }
 
+    /**
+     * Verifica si un valor está presente en la lista.
+     *
+     * @param value el valor a buscar.
+     * @return true si el valor está presente en la lista, false en caso contrario.
+     */
     public boolean contains(int value) {
         Node current = this.first.getNext();
 
@@ -25,18 +37,23 @@ public class OrderedLinkedDummy {
         return false;
     }
 
+    /**
+     * Añade un valor a la lista manteniendo el orden.
+     *
+     * @param value el valor a añadir.
+     */
     public void add(int value) {
         Node newNode = new Node(value, null);
         Node current = this.first;
 
-        //Mientras el valor sea mayor que el valor del nodo actual
+        // Mientras el valor sea mayor que el valor del nodo actual
         while (current.getNext() != null && value < current.getValue()) {
             current = current.getNext();
         }
 
-        if (current.getNext() == null) { //Si el siguiente nodo es nulo
-            current.setNext(newNode); //Se añade el nuevo nodo al final
-        } else { //Si no
+        if (current.getNext() == null) { // Si el siguiente nodo es nulo
+            current.setNext(newNode); // Se añade el nuevo nodo al final
+        } else { // Si no
             newNode.setNext(current.getNext());
             current.setNext(newNode);
         }
@@ -45,9 +62,9 @@ public class OrderedLinkedDummy {
     }
 
     /**
-     * Removes the node with the specified value from the list.
+     * Elimina el nodo con el valor especificado de la lista.
      *
-     * @param value the value to be removed from the list
+     * @param value el valor a eliminar de la lista.
      */
     public void remove(int value) {
         // Empezar desde el primer nodo
@@ -67,6 +84,11 @@ public class OrderedLinkedDummy {
         }
     }
 
+    /**
+     * Devuelve una representación en cadena de la lista.
+     *
+     * @return una cadena que representa la lista.
+     */
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder();

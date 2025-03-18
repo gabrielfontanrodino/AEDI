@@ -13,14 +13,30 @@ public class DoublyLinked {
         this.elementsCount = 0;
     }
 
+    /**
+     * Verifica si la lista doblemente enlazada está vacía.
+     *
+     * @return true si la lista está vacía, false en caso contrario
+     */
     public boolean isEmpty() {
         return (first == null && last == null && elementsCount == 0);
     }
 
+    /**
+     * Función que obtiene el tamaño de la lista doblemente enlazada.
+     *
+     * @return el número de elementos en la lista
+     */
     public int size() {
         return this.elementsCount;
     }
 
+    /**
+     * Recorremos la estructura para contar las ocurrencias de un valor dado.
+     *
+     * @param value el valor a buscar
+     * @return el número de ocurrencias del valor dado
+     */
     public int numberOfOccurrences(int value) {
         int counter = 0;
         for (DoubleNode current = this.first; current != null; current = current.getNext()) {
@@ -31,6 +47,12 @@ public class DoublyLinked {
         return counter;
     }
 
+    /**
+     * Comprobación del valor dado para ver si está presente en la estructura.
+     *
+     * @param value el valor a buscar
+     * @return true si el valor está presente, false en caso contrario
+     */
     public boolean contains(int value) {
         DoubleNode current = this.first;
 
@@ -41,6 +63,11 @@ public class DoublyLinked {
         return current != null;
     }
 
+    /**
+     * Añade un nuevo nodo al principio de la lista doblemente enlazada.
+     *
+     * @param value el valor a añadir
+     */
     public void addFirst(int value) {
         DoubleNode newNode = new DoubleNode(null, value, this.first);
 
@@ -54,6 +81,11 @@ public class DoublyLinked {
         this.elementsCount++;
     }
 
+    /**
+     * Añadir un nuevo nodo al final de la lista doblemente enlazada.
+     *
+     * @param value el valor a añadir
+     */
     public void addLast(int value) {
         DoubleNode newNode = new DoubleNode(this.last, value, null);
 
@@ -67,6 +99,11 @@ public class DoublyLinked {
         this.elementsCount++;
     }
 
+    /**
+     * Elimina el primer nodo que se encuentre con el valor dado.
+     *
+     * @throws IllegalAccessException si la estructura está vacía
+     */
     public void remove(int value) throws IllegalAccessException {
         if (this.isEmpty()) {
             throw new IllegalAccessException("The structure is empty");

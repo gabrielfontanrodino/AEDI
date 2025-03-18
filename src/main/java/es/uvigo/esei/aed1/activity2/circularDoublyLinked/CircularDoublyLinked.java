@@ -2,28 +2,46 @@ package es.uvigo.esei.aed1.activity2.circularDoublyLinked;
 
 import es.uvigo.esei.aed1.commonLinked.DoubleNode;
 
+/**
+ * Implementación de una lista circular doblemente enlazada
+ */
 public class CircularDoublyLinked {
 
     private DoubleNode last;
     private int size;
 
-    // Constructor que inicializa una lista circular doblemente enlazada vacía
+    /**
+     * Constructor que inicializa una lista circular doblemente enlazada vacía
+     */
     public CircularDoublyLinked() {
         this.last = null; // Inicializa el último nodo como null
         this.size = 0; // Inicializa el tamaño de la lista como 0
     }
 
-    // Verifica si la lista está vacía
+    /**
+     * Verifica si la lista está vacía
+     *
+     * @return true si la lista está vacía, false en caso contrario
+     */
     public boolean isEmpty() {
         return this.size == 0; // Retorna true si el tamaño es 0
     }
 
-    // Devuelve el tamaño de la lista
+    /**
+     * Devuelve el tamaño de la lista
+     *
+     * @return el número de elementos en la lista
+     */
     public int size() {
         return this.size; // Retorna el número de elementos en la lista
     }
 
-    // Cuenta el número de ocurrencias de un valor en la lista
+    /**
+     * Cuenta el número de ocurrencias de un valor en la lista
+     *
+     * @param value el valor a buscar
+     * @return el número de veces que aparece el valor en la lista
+     */
     public int numberOfOccurrences(int value) {
         if (this.isEmpty()) {
             return 0;
@@ -39,7 +57,12 @@ public class CircularDoublyLinked {
         return count;
     }
 
-    // Verifica si un valor está contenido en la lista
+    /**
+     * Verifica si un valor está contenido en la lista
+     *
+     * @param value el valor a buscar
+     * @return true si el valor se encuentra en la lista, false en caso contrario
+     */
     public boolean contains(int value) {
         if (this.isEmpty()) {
             return false;
@@ -54,7 +77,12 @@ public class CircularDoublyLinked {
         return false;
     }
 
-    // Devuelve el primer valor de la lista
+    /**
+     * Devuelve el primer valor de la lista
+     *
+     * @return el valor del primer nodo
+     * @throws NullPointerException si la lista está vacía
+     */
     public int firstValue() throws NullPointerException {
         if (this.isEmpty()) {
             throw new NullPointerException("The list is empty"); // Lanza una excepción si está vacía
@@ -62,7 +90,11 @@ public class CircularDoublyLinked {
         return this.last.getNext().getValue(); // Retorna el valor del primer nodo
     }
 
-    // Añade un valor al final de la lista
+    /**
+     * Añade un valor al final de la lista
+     *
+     * @param value el valor a añadir
+     */
     public void addLast(int value) {
         DoubleNode newNode = new DoubleNode(this.last, value, null); // Crea un nuevo nodo con el valor dado
         if (this.isEmpty()) {
@@ -78,7 +110,9 @@ public class CircularDoublyLinked {
         this.size++; // Incrementa el tamaño de la lista
     }
 
-    // Elimina el primer nodo de la lista
+    /**
+     * Elimina el primer nodo de la lista
+     */
     public void removeFirst() {
         if (!this.isEmpty()) {
             if (this.size == 1) { // Verifica si la lista tiene un solo elemento
@@ -92,7 +126,11 @@ public class CircularDoublyLinked {
         }
     }
 
-    // Elimina un nodo con un valor específico de la lista
+    /**
+     * Elimina un nodo con un valor específico de la lista
+     *
+     * @param value el valor a eliminar
+     */
     public void remove(int value) {
         if (this.isEmpty()) {
             return;
@@ -119,7 +157,11 @@ public class CircularDoublyLinked {
         } while (current != this.last.getNext()); // Recorre la lista hasta volver al inicio
     }
 
-    // Devuelve una representación en cadena de la lista
+    /**
+     * Devuelve una representación en cadena de la lista
+     *
+     * @return una cadena con todos los valores de la lista
+     */
     @Override
     public String toString() {
         if (this.isEmpty()) {

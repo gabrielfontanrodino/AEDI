@@ -1,0 +1,1 @@
+Documenta esta clase y sus funciones en español usando JavaDoc. Si lo consideras necesario escribe algún comentario dentro de las funciones, pero NO modifiques el funcionamiento bajo ningún concepto.

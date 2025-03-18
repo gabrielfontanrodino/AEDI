@@ -1,14 +1,26 @@
 package es.uvigo.esei.aed1.activity2.multipleSorted;
 
 
+/**
+ * Clase que representa una lista doblemente ordenada de estudiantes.
+ * Los estudiantes se pueden ordenar por nombre o por número.
+ */
 public class MultipleSorted {
     private MultipleNode firstName, firstNumber;
 
+    /**
+     * Constructor que inicializa la lista doblemente ordenada.
+     */
     public MultipleSorted() {
         this.firstName = null;
         this.firstNumber = null;
     }
 
+    /**
+     * Añade un nuevo estudiante a la lista, manteniendo el orden por nombre y por número.
+     *
+     * @param student el estudiante a añadir
+     */
     public void add(Student student) {
         // Crear un nuevo nodo con el estudiante proporcionado
         MultipleNode newNode = new MultipleNode(student, null, null);
@@ -59,6 +71,11 @@ public class MultipleSorted {
         }
     }
 
+    /**
+     * Imprime la lista de estudiantes ordenada por nombre.
+     *
+     * @return una cadena con la lista de estudiantes ordenada por nombre
+     */
     public String printOrderedByName() {
         StringBuilder sb = new StringBuilder();
 
@@ -70,7 +87,11 @@ public class MultipleSorted {
         return sb.toString();
     }
 
-
+    /**
+     * Imprime la lista de estudiantes ordenada por número.
+     *
+     * @return una cadena con la lista de estudiantes ordenada por número
+     */
     public String printOrderedByNumber() {
         StringBuilder sb = new StringBuilder();
 
