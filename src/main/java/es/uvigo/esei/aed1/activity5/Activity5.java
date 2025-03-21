@@ -109,7 +109,31 @@ public class Activity5 {
 
     //Exercise 8
     public static String addDigits(int number) {
-        return null;
+        Stack<Integer> newStack = new LinkedStack<>();
+        int tmp = 0;
+        int sum =0;
+        while(number != 0) {
+            tmp = number % 10;
+            newStack.push(tmp);
+            number /= 10;
+        }
+
+        StringBuilder sb = new StringBuilder();
+
+        while (!newStack.isEmpty()) {
+            int value = newStack.pop();
+            sum += value;
+            sb.append(value);
+
+            if (!newStack.isEmpty()) {
+                sb.append(" + ");
+            }
+        }
+
+        sb.append(" = ");
+        sb.append(sum);
+
+        return sb.toString();
     }
 
     //Exercise 9
