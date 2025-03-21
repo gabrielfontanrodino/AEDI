@@ -1,5 +1,6 @@
 package es.uvigo.esei.aed1.activity5;
 
+import es.uvigo.esei.aed1.tads.stack.LinkedStack;
 import es.uvigo.esei.aed1.tads.stack.Stack;
 
 
@@ -7,17 +8,61 @@ public class Activity5 {
 
     //Exercise 1
     public static String reverseWords(String text) {
-        return null;
+        Stack<Character> list = new LinkedStack<>();
+        StringBuilder sb = new StringBuilder();
+
+        String[] words = text.split(" ");
+
+        for (String word : words) {
+            for (int i = 0; i < word.length(); i++) {
+                list.push(word.charAt(i));
+            }
+            while (!list.isEmpty()) {
+                sb.append(list.pop());
+            }
+
+            if (!words[words.length - 1].equals(word)) {
+                sb.append(" ");
+            }
+        }
+
+        return sb.toString();
     }
 
     //Exercise 2 i
     public static <T> boolean equalStacks(Stack<T> stack1, Stack<T> stack2) throws NullPointerException {
+        if (stack1 == null || stack2 == null) {
+            throw new NullPointerException("One of the stacks is null");
+        }
+
+        while (!stack1.isEmpty() || !stack2.isEmpty()) { //Will throw NullPointerException if any of the stacks is null
+            if (stack1.pop() != stack2.pop()) {
+                return false;
+            }
+        }
         return true;
     }
 
     //Exercise 2 ii
     public static <T> Stack<T> copy(Stack<T> stack) throws NullPointerException {
-        return null;
+        if (stack == null) {
+            throw new NullPointerException("The stack is null");
+        }
+
+        Stack<T> newStack = new LinkedStack<>();
+        Stack<T> auxStack = new LinkedStack<>();
+
+        while (!stack.isEmpty()) {
+            auxStack.push(stack.pop());
+        }
+
+        while (!auxStack.isEmpty()) {
+            T value = auxStack.pop();
+            stack.push(value); //IMPORTANTE PORQUE SI NO, SE MODIFICA EL STACK ORIGINAL Y QUEDA VACÍO
+            newStack.push(value);
+        }
+
+        return newStack;
     }
 
     //Exercise 3
@@ -27,7 +72,24 @@ public class Activity5 {
 
     //Exercise 4
     public static int getNumDiamonds(String sand) {
-        return 0;
+        int diamonds = 0;
+        char caracter;
+        Stack<Character> stack = new LinkedStack<>();
+
+        for (int i = 0; i < sand.length(); i++) {
+            caracter = sand.charAt(i);
+
+            switch (caracter) {
+                case '<' -> stack.push(sand.charAt(i));
+                case '>' -> {
+                    if (!stack.isEmpty() && stack.pop() == '<') {
+                        diamonds++;
+                    }
+                }
+            }
+        }
+
+        return diamonds;
     }
 
     //Exercise 5

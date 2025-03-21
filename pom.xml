@@ -87,7 +87,7 @@
         <dependency>
             <groupId>es.uvigo.esei.aed1</groupId>
             <artifactId>tads</artifactId>
-            <version>1.0.10</version>
+            <version>1.0.12</version>
         </dependency>
         <dependency>
             <groupId>org.junit.jupiter</groupId>

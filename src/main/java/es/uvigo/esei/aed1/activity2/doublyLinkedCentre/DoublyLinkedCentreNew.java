@@ -61,6 +61,17 @@ public class DoublyLinkedCentreNew {
             return true;
         }
 
+        DoubleNode current = getDoubleNode(value);
+
+        // Verifica si se encontró el valor
+        if (current == null) {
+            return false;
+        } else {
+            return current.hasValue(value);
+        }
+    }
+
+    private DoubleNode getDoubleNode(int value) {
         DoubleNode current = this.centre;
 
         // Si el valor es menor que el centro, busca hacia la izquierda
@@ -74,13 +85,7 @@ public class DoublyLinkedCentreNew {
                 current = current.getNext();
             }
         }
-
-        // Verifica si se encontró el valor
-        if (current == null) {
-            return false;
-        } else {
-            return current.hasValue(value);
-        }
+        return current;
     }
 
     /**

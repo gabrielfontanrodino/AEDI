@@ -96,6 +96,20 @@ public class Activity5Test {
         });
     }
 
+    /**
+     * Test of copy method, of class Activity5.
+     */
+    @Test
+    public void testCopyNullMessage() {
+        stack = null;
+
+        Exception exception = assertThrows(NullPointerException.class, () -> {
+            copy(stack);
+        });
+
+        assertThat(exception.getMessage(), is("The stack is null"));
+    }
+
     @Test
     public void testCopy() {
         Stack<Integer> result = copy(stack);
