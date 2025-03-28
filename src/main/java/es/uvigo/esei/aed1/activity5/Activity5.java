@@ -143,7 +143,24 @@ public class Activity5 {
 
     //Exercise 10
     public static <T> void replaceValues(Stack<T> stack, T newValue, T oldValue) throws NullPointerException {
+        if (stack == null) {
+            throw new NullPointerException("The stack is null");
+        }
 
+        Stack<T> auxStack = new LinkedStack<>();
+
+        while (!stack.isEmpty()) {
+            T value = stack.pop();
+            if (value.equals(oldValue)) {
+                auxStack.push(newValue);
+            } else {
+                auxStack.push(value);
+            }
+        }
+
+        while (!auxStack.isEmpty()) {
+            stack.push(auxStack.pop());
+        }
     }
 
     //Exercise 11
