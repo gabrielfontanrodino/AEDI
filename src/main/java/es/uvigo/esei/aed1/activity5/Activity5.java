@@ -145,38 +145,40 @@ public class Activity5 {
         return "aeiouAEIOU".indexOf(c) != -1;
     }
 
-    //Exercise 6
     public static <T> T unstackAnItem(Stack<T> stack, int index) throws NullPointerException, IllegalArgumentException {
         if (stack == null) {
             throw new NullPointerException("The stack is null");
         }
 
-        if (index < 0 || index >= stack.size()) {
-            throw new IllegalArgumentException("Index cannot be negative or greater than the stack size");
+        if (stack.isEmpty()) {
+            throw new IllegalArgumentException("The stack is empty");
         }
 
-        Stack<T> auxStack = new LinkedStack<>();
-        T item;
+        // Verificamos que el índice sea válido (entre 1 y el tamaño de la pila)
+        if (index < 1 || index > stack.size()) {
+            throw new IllegalArgumentException("Index out of bounds: must be between 1 and " + stack.size());
+        }
 
-        for (int i = 0; i < index; i++) {
-            if (stack.isEmpty()) {
-                throw new IllegalArgumentException("Index out of bounds");
-            }
+        // Pila auxiliar para almacenar temporalmente los elementos
+        Stack<T> auxStack = new LinkedStack<>();
+        T itemToReturn;
+
+        // Desapilamos elementos hasta llegar al índice deseado
+        // Recordar que 1 es el tope de la pila, así que necesitamos desapilar (index-1) elementos
+        for (int i = 1; i < index; i++) {
             auxStack.push(stack.pop());
         }
 
-        if (stack.isEmpty()) {
-            throw new IllegalArgumentException("Index out of bounds");
-        }
+        // Extraemos el elemento deseado
+        itemToReturn = stack.pop();
 
-        // Desapilamos el elemento en la posición index
-        item = stack.pop();
-
+        // Volvemos a apilar los elementos que sacamos temporalmente
         while (!auxStack.isEmpty()) {
             stack.push(auxStack.pop());
         }
 
-        return item;
+
+        return itemToReturn;
     }
 
     //Exercice 7
@@ -187,14 +189,14 @@ public class Activity5 {
             char c = mathExpression.charAt(i);
 
             switch (c) {
-                // Si es paréntesis de apertura, se apila
+                // Si es algún carácter de apertura, se añade al stack
                 case '(':
                 case '[':
                 case '{':
                     stack.push(c);
                     break;
 
-                // Si es paréntesis de cierre, se verifica si hay coincidencia con el del tope
+                // Si es de cierre, se verifica si hay coincidencia con el del tope
                 case ')':
                 case ']':
                 case '}':
@@ -254,11 +256,52 @@ public class Activity5 {
 
     //Exercise 9
     public static String removeCharDuplicated(String text) {
-        Stack<Character> stack = new LinkedStack<>();
-        StringBuilder sb = new StringBuilder();
+        if (text == null || text.isEmpty() || text.length() == 1) {
+            return text; // Casos base: texto vacío o con un solo carácter
+        }
 
-        //we dont have contains
-        return null;
+        // Creamos una pila para ir almacenando los caracteres
+        Stack<Character> stack = new LinkedStack<>();
+
+        // Procesamos el texto para eliminar duplicados adyacentes una primera vez
+        for (int i = 0; i < text.length(); i++) {
+            char current = text.charAt(i);
+
+            // Si la pila no está vacía y el carácter actual coincide con el tope de la pila,
+            // eliminamos el duplicado sacando el elemento de la pila
+            if (!stack.isEmpty() && stack.top() == current) {
+                stack.pop();
+            } else {
+                // Si no es un duplicado, lo añadimos a la pila
+                stack.push(current);
+            }
+        }
+
+        // Construimos un String a partir de la pila resultante
+        StringBuilder sb = new StringBuilder();
+        Stack<Character> tempStack = new LinkedStack<>();
+
+        // Invertimos la pila para mantener el orden original de los caracteres
+        while (!stack.isEmpty()) {
+            tempStack.push(stack.pop());
+        }
+
+        // Construimos el String resultado
+        while (!tempStack.isEmpty()) {
+            sb.append(tempStack.pop());
+        }
+
+        String result = sb.toString();
+
+        // Si el resultado es igual al texto original, significa que ya no hay más duplicados
+        // adyacentes por eliminar y podemos retornar
+        if (result.equals(text)) {
+            return result;
+        } else {
+            // Si el resultado es diferente, aplicamos la eliminación recursivamente
+            // para eliminar nuevos duplicados adyacentes que puedan haberse formado
+            return removeCharDuplicated(result);
+        }
     }
 
     //Exercise 10
@@ -283,9 +326,46 @@ public class Activity5 {
         }
     }
 
-    //Exercise 11
     public static <T> void pushValuesLimited(Stack<T> stack, T value) throws NullPointerException {
+        // Verificar si stack es null
+        if (stack == null) {
+            throw new NullPointerException("La pila no puede ser null");
+        }
 
+        // Verificar si value es null (esto podría ser redundante si stack.push() ya verifica esto)
+        if (value == null) {
+            throw new NullPointerException("El valor a insertar no puede ser null");
+        }
+
+        // Tamaño máximo de la pila limitada
+        final int MAX_SIZE = 10;
+
+        // Si la pila ya tiene MAX_SIZE elementos, debemos eliminar el elemento más antiguo
+        if (stack.size() >= MAX_SIZE) {
+            // Para eliminar el elemento más antiguo (el del fondo), necesitamos
+            // extraer todos los elementos excepto el último, almacenarlos temporalmente,
+            // y luego volver a insertarlos
+
+            // Pila auxiliar para almacenar temporalmente los elementos
+            Stack<T> tempStack = new LinkedStack<>();
+
+            // Extraer todos los elementos excepto el último (más antiguo)
+            // y guardarlos en la pila temporal
+            for (int i = 0; i < MAX_SIZE - 1; i++) {
+                tempStack.push(stack.pop());
+            }
+
+            // Descartar el elemento más antiguo
+            stack.pop();
+
+            // Devolver los elementos a la pila original en el orden correcto
+            while (!tempStack.isEmpty()) {
+                stack.push(tempStack.pop());
+            }
+        }
+
+        // Finalmente, insertamos el nuevo valor
+        stack.push(value);
     }
 
 }

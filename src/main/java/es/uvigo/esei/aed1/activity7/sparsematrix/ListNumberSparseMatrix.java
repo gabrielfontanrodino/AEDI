@@ -30,13 +30,43 @@ public class ListNumberSparseMatrix implements NumberSparseMatrix {
 
     @Override
     public Number get(int i, int j) throws IndexOutOfBoundsException {
-        return null;
+        if (i <= 0 || i > numRows || j <= 0 || j > numCols) {
+            throw new IndexOutOfBoundsException();
+        }
+
+        for (ValueRow row : rows) {
+            if (row.getRow() == i) {
+                for (ValueCol col : row.getColumns()) {
+                    if (col.getColumn() == j) {
+                        return col.getValue();
+                    }
+                }
+            }
+        }
+
+        return 0; // Return 0 if the value is not found
     }
 
     @Override
     public void set(int i, int j, Number value) throws IndexOutOfBoundsException {
+        if (i <= 0 || i > numRows || j <= 0 || j > numCols) {
+            throw new IndexOutOfBoundsException();
+        }
 
+        for (ValueRow row : rows) {
+            if (row.getRow() == i) {
+                for(ValueCol col : row.getColumns()) {
+                    if (col.getColumn() == j) {
+                        col.setValue(value);
+                        return;
+                    }
+                }
+            }
+        }
+
+        ValueCol newCol = new ValueCol(j, value);
+        rows.addLast(new ValueRow(i, new LinkedList<>()));
+        rows.get(rows.size() - 1).getColumns().addLast(newCol);
     }
-
 
 }

@@ -108,21 +108,7 @@ public class Activity6Test {
     @Test
     public void testMix() {
         expected = arrayToQueue(11, 1, 12, 2, 13, 3, 14, 4, 15, 5, 16, 6, 17, 7, 18, 8, 19, 9, 20, 10);
-        while(!queue1.isEmpty()) {
-            System.out.println(queue1.remove());
-        }
-
-        System.out.println(".......");
-        while(!queue2.isEmpty()) {
-            System.out.println(queue2.remove());
-        }
         Queue<Integer> result = mix(queue1, queue2);
-
-        System.out.println("........");
-
-        while(!result.isEmpty()) {
-            System.out.println(result.remove());
-        }
 
         assertThat(result, is(equalToQueue(expected)));
     }

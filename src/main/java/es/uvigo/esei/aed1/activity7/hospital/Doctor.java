@@ -4,7 +4,7 @@ import es.uvigo.esei.aed1.tads.queue.LinkedQueue;
 import es.uvigo.esei.aed1.tads.queue.Queue;
 
 /**
- * Representa un/a medico/a, que se identifica por un numero y
+ * Representa un/a médico/a, que se identifica por un número y
  * tiene asociado una cola de pacientes
  */
 public class Doctor {
@@ -28,6 +28,5 @@ public class Doctor {
     public void addPatient(Patient patient) {
         this.patients.add(patient);
     }
-
 
 }

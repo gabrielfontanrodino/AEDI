@@ -18,7 +18,7 @@ public class Activity6 {
         }
     }
 
-    //Todo: Fix (failing tests)
+    // Todo: Fix (failing tests)
     public static <T> Queue<T> mix(Queue<T> queue1, Queue<T> queue2) throws NullPointerException {
         if (queue1 == null || queue2 == null) {
             throw new NullPointerException("One of the queues is null");
@@ -26,12 +26,16 @@ public class Activity6 {
 
         Queue<T> result = new LinkedQueue<>();
 
-        while (!queue1.isEmpty() || !queue2.isEmpty()) {
-            if (!queue1.isEmpty()) {
-                result.add(queue1.remove());
-            }
+        // Mientras alguna de las colas tenga elementos
+        while (!queue1.isEmpty() && !queue2.isEmpty()) {
+            // Si queue2 tiene elementos, los añadimos
             if (!queue2.isEmpty()) {
                 result.add(queue2.remove());
+            }
+
+            // Si queue1 tiene elementos, los añadimos
+            if (!queue1.isEmpty()) {
+                result.add(queue1.remove());
             }
         }
 
