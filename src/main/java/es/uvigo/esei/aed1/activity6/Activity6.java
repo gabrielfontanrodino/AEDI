@@ -4,7 +4,6 @@ import es.uvigo.esei.aed1.activity6.implementation.CustomQueue;
 import es.uvigo.esei.aed1.tads.queue.LinkedQueue;
 import es.uvigo.esei.aed1.tads.queue.Queue;
 
-
 public class Activity6 {
 
     //Exercise 1.1
@@ -18,7 +17,6 @@ public class Activity6 {
         }
     }
 
-    // Todo: Fix (failing tests)
     public static <T> Queue<T> mix(Queue<T> queue1, Queue<T> queue2) throws NullPointerException {
         if (queue1 == null || queue2 == null) {
             throw new NullPointerException("One of the queues is null");

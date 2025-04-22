@@ -35,12 +35,36 @@ public class Activity5 {
             throw new NullPointerException("One of the stacks is null");
         }
 
-        while (!stack1.isEmpty() || !stack2.isEmpty()) { //Will throw NullPointerException if any of the stacks is null
-            if (stack1.pop() != stack2.pop()) {
-                return false;
+        Stack<T> auxStack1 = new LinkedStack<>();
+        Stack<T> auxStack2 = new LinkedStack<>();
+        boolean areEqual = true;
+
+        while (!stack1.isEmpty() && !stack2.isEmpty()) {
+            T value1 = stack1.pop();
+            T value2 = stack2.pop();
+
+            auxStack1.push(value1);
+            auxStack2.push(value2);
+
+            if (!value1.equals(value2)) {
+                areEqual = false;
             }
         }
-        return true;
+
+        if (!stack1.isEmpty() || !stack2.isEmpty()) {
+            areEqual = false;
+        }
+
+        // Reinsertamos los elementos en las pilas originales
+        while (!auxStack1.isEmpty()) {
+            stack1.push(auxStack1.pop());
+        }
+
+        while (!auxStack2.isEmpty()) {
+            stack2.push(auxStack2.pop());
+        }
+
+        return areEqual;
     }
 
     //Exercise 2 ii
@@ -176,7 +200,6 @@ public class Activity5 {
         while (!auxStack.isEmpty()) {
             stack.push(auxStack.pop());
         }
-
 
         return itemToReturn;
     }

@@ -262,6 +262,15 @@ public class Activity5Test {
         assertEquals(expected, result);
     }
 
+    @Test
+    public void testIsWellParentized1() {
+        String mathExpression = "())(";
+        boolean expected = false;
+        boolean result = isWellParentized(mathExpression);
+
+        assertEquals(expected, result);
+    }
+
     /**
      * Test of addDigits method, of class Activity5.
      */
