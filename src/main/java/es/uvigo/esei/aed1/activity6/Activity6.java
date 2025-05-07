@@ -175,7 +175,7 @@ public class Activity6 {
      * @param initialPos la posición inicial desde donde se comienza a contar
      * @param jump       el número de saltos entre eliminaciones
      * @return el último soldado restante en la cola
-     * @throws IllegalArgumentException si la cola de soldados es null, la posición inicial es negativa o el número de saltos es menor que 1
+     * @throws IllegalArgumentException si la cola de soldados es {@code null}, la posición inicial es negativa o el número de saltos es menor que 1
      */
     public static Integer josephus(Queue<Integer> soldiers, int initialPos, int jump) {
         if (soldiers == null || initialPos < 0 || jump < 1) {

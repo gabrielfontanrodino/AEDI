@@ -40,6 +40,17 @@ public class SortAlgorithmsTest {
     }
 
     /**
+     * Test of radixSort method, of class SortAlgorithms.
+     */
+    @Test
+    public void testRadixSortList() {
+        int[] aux = {4, 6, 2, 8, 5, 12, 15};
+        int[] expResult = {2, 4, 5, 6, 8, 12, 15};
+        SortAlgorithms.radixSortList(aux);
+        assertArrayEquals(aux, expResult);
+    }
+
+    /**
      * Test of selectionSort method, of class SortAlgorithms.
      */
     @Test
@@ -66,8 +77,8 @@ public class SortAlgorithmsTest {
      */
     @Test
     public void testBeadSort() {
-        int[] aux = {4, 6, 2, 8, 5, 12, 15};
-        int[] expResult = {15, 12, 8, 6, 5, 4, 2};
+        int[] aux = {4, 6, 2, 8, 5, 12, 15, 1000000};
+        int[] expResult = {1000000, 15, 12, 8, 6, 5, 4, 2};
         SortAlgorithms.beadSort(aux);
         assertArrayEquals(aux, expResult);
     }

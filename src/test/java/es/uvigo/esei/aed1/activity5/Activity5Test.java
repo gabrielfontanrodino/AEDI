@@ -48,6 +48,18 @@ public class Activity5Test {
     }
 
     /**
+     * Test of reverseWords method, of class Activity5.
+     */
+    @Test
+    public void testReverseWordsIterator() {
+        String text = "esto es una prueba";
+        String expResult = "otse se anu abeurp";
+        String result = reverseWordsIterator(text);
+
+        assertEquals(expResult, result);
+    }
+
+    /**
      * Test of equalStacks method, of class Activity5.
      */
     @Test

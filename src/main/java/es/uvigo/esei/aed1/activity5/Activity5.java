@@ -3,6 +3,8 @@ package es.uvigo.esei.aed1.activity5;
 import es.uvigo.esei.aed1.tads.stack.LinkedStack;
 import es.uvigo.esei.aed1.tads.stack.Stack;
 
+import java.util.Iterator;
+import java.util.List;;
 
 public class Activity5 {
 
@@ -22,6 +24,33 @@ public class Activity5 {
             }
 
             if (!words[words.length - 1].equals(word)) {
+                sb.append(" ");
+            }
+        }
+
+        return sb.toString();
+    }
+
+    public static String reverseWordsIterator(String text) {
+        Stack<Character> stack = new LinkedStack<>();
+        StringBuilder sb = new StringBuilder();
+
+        List<String> words = List.of(text.split(" "));
+
+        Iterator<String> iterator = words.iterator();
+
+        for (int j = 0; j < words.size(); j++) {
+            String word = iterator.next();
+
+            for (int i = 0; i < word.length(); i++) {
+                stack.push(word.charAt(i));
+            }
+
+            while (!stack.isEmpty()) {
+                sb.append(stack.pop());
+            }
+
+            if (iterator.hasNext()) {
                 sb.append(" ");
             }
         }
