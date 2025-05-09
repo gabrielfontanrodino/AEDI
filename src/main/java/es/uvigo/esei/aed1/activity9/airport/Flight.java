@@ -22,6 +22,6 @@ public class Flight {
 
     @Override
     public String toString() {
-        return "Flight " + aircraft + " ----- " + origin + " - " + destination + " - " + departureTime.getTime().toString();
+        return "Flight " + aircraft + " ----- " + origin + " - " + destination + " - " + departureTime.getTime();
     }
 }
