@@ -13,15 +13,15 @@ public class SortAlgorithms {
         boolean swapped;            // Indicar si se ha hecho un intercambio
         int start = 0;              // Indicar el inicio del recorrido
         int end = aux.length - 1;   // Indicar el final del recorrido (índice al que se llega)
-                                    // El "-1" es para poder acceder al elemento siguiente sin que tengamos IooBE
-                                    // (IndexOutOfBoundsException)
+        // El "-1" es para poder acceder al elemento siguiente sin que tengamos IooBE
+        // (IndexOutOfBoundsException)
 
         do {
             swapped = false;
 
             // Mover el elemento más grande hacia el final
             for (int i = start; i < end; i++) { // Se tiene en cuenta usando "start" y "end" que ya hay algunos elementos
-                                                // ordenados, reduciendo el número de iteraciones
+                // ordenados, reduciendo el número de iteraciones
                 int next = i + 1;
                 if (aux[i] > aux[next]) { //Si el elemento actual es mayor al siguiente, se intercambian
                     int temp = aux[i];
@@ -33,7 +33,7 @@ public class SortAlgorithms {
                 }
             }
             end--;  // Se reduce el número de iteraciones, ya que acabamos de ordenar el número en la posición "i"
-                    // a su posición correcta (en el sentido de la ordenación)
+            // a su posición correcta (en el sentido de la ordenación)
 
             // Mover el elemento más pequeño hacia el inicio
             for (int i = end; i > start; i--) {

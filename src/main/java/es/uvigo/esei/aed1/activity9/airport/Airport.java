@@ -36,7 +36,7 @@ public class Airport {
                     lessBusyRunway = runway;
                 }
 
-                if(runway.numberFlights() < lessBusyRunway.numberFlights()) {
+                if (runway.numberFlights() < lessBusyRunway.numberFlights()) {
                     lessBusyRunway = runway;
                 }
             }

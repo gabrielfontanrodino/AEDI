@@ -26,11 +26,9 @@ package es.uvigo.esei.aed1.activity4;
 import es.uvigo.esei.aed1.tads.common.EmptyException;
 
 /**
- *
  * Interfaz que define una caja genérica que puede contener elementos de tipo T.
  *
  * @param <T> el tipo de elementos que la caja puede contener
- *
  * @autor gfrodinho_esei.uvigo
  */
 public interface Box<T> {

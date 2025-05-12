@@ -22,7 +22,7 @@ public class LinkedQueue2Ref<T> implements CustomQueue<T> {
 
     @Override
     public T first() throws EmptyException {
-        if(this.isEmpty()) {
+        if (this.isEmpty()) {
             throw new EmptyException("Queue is empty");
         } else {
             return this.first.getValue();
@@ -31,11 +31,11 @@ public class LinkedQueue2Ref<T> implements CustomQueue<T> {
 
     @Override
     public void add(T value) throws NullPointerException {
-        if(value == null) {
+        if (value == null) {
             throw new NullPointerException("Value is null");
         } else {
             Node<T> newNode = new Node<>(value, null);
-            if(this.isEmpty()) {
+            if (this.isEmpty()) {
                 this.first = this.last = newNode;
             } else {
                 this.last.setNext(newNode);
@@ -47,13 +47,13 @@ public class LinkedQueue2Ref<T> implements CustomQueue<T> {
 
     @Override
     public T remove() throws EmptyException {
-        if(this.isEmpty()) {
+        if (this.isEmpty()) {
             throw new EmptyException("Queue is empty");
         } else {
             T value = this.first.getValue();
             this.first = this.first.getNext();
             this.size--;
-            if(this.isEmpty()) {
+            if (this.isEmpty()) {
                 this.last = null;
             }
             return value;

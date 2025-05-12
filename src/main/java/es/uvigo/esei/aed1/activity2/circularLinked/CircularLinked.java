@@ -125,7 +125,7 @@ public class CircularLinked {
         }
         StringBuilder sb = new StringBuilder(); // Crea un StringBuilder para construir la cadena
         Node current = this.last.getNext(); // Empieza desde el primer nodo
-        
+
         do {
             sb.append(current.getValue()).append(" "); // Añade el valor del nodo a la cadena
             current = current.getNext(); // Avanza al siguiente nodo

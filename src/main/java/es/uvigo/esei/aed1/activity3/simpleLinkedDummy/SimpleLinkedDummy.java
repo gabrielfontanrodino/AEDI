@@ -44,8 +44,8 @@ public class SimpleLinkedDummy {
     public int numberOfOccurrences(int value) {
         int count = 0;
 
-        for(Node current = this.first.getNext(); current != null; current = current.getNext()) {
-            if(current.hasValue(value)) {
+        for (Node current = this.first.getNext(); current != null; current = current.getNext()) {
+            if (current.hasValue(value)) {
                 count++;
             }
         }
@@ -62,7 +62,7 @@ public class SimpleLinkedDummy {
     public boolean contains(int value) {
         Node current = this.first.getNext();
 
-        while(current != null && !current.hasValue(value)) {
+        while (current != null && !current.hasValue(value)) {
             current = current.getNext();
         }
 
@@ -89,7 +89,7 @@ public class SimpleLinkedDummy {
         Node newNode = new Node(value, null);
 
         Node current = this.first;
-        while(current.getNext() != null) {
+        while (current.getNext() != null) {
             current = current.getNext();
         }
 
@@ -103,16 +103,16 @@ public class SimpleLinkedDummy {
      * @param value el valor a eliminar.
      */
     public void remove(int value) {
-        if(this.isEmpty()) {
+        if (this.isEmpty()) {
             System.out.println("The list is empty");
         } else {
             Node current = this.first;
 
-            while(current.getNext() != null && !current.getNext().hasValue(value)) {
+            while (current.getNext() != null && !current.getNext().hasValue(value)) {
                 current = current.getNext();
             }
 
-            if(current.getNext() != null) {
+            if (current.getNext() != null) {
                 current.setNext(current.getNext().getNext());
                 this.elementsCount--;
             } else {
@@ -133,9 +133,9 @@ public class SimpleLinkedDummy {
 
         sb.append("[");
 
-        while(current != null) {
+        while (current != null) {
             sb.append(current.getValue());
-            if(current.getNext() != null) {
+            if (current.getNext() != null) {
                 sb.append(", ");
             }
             current = current.getNext();

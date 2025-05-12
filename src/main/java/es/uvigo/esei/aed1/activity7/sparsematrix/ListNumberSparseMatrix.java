@@ -55,7 +55,7 @@ public class ListNumberSparseMatrix implements NumberSparseMatrix {
 
         for (ValueRow row : rows) {
             if (row.getRow() == i) {
-                for(ValueCol col : row.getColumns()) {
+                for (ValueCol col : row.getColumns()) {
                     if (col.getColumn() == j) {
                         col.setValue(value);
                         return;

@@ -4,7 +4,9 @@ import es.uvigo.esei.aed1.tads.stack.LinkedStack;
 import es.uvigo.esei.aed1.tads.stack.Stack;
 
 import java.util.Iterator;
-import java.util.List;;
+import java.util.List;
+
+;
 
 public class Activity5 {
 

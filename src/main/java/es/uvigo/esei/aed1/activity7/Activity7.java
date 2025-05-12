@@ -2,10 +2,11 @@ package es.uvigo.esei.aed1.activity7;
 
 import es.uvigo.esei.aed1.activity7.hospital.Doctor;
 import es.uvigo.esei.aed1.activity7.hospital.Hospital;
-import java.util.Iterator;
 import es.uvigo.esei.aed1.tads.list.IteratorList;
 import es.uvigo.esei.aed1.tads.list.LinkedList;
 import es.uvigo.esei.aed1.tads.list.List;
+
+import java.util.Iterator;
 
 public class Activity7 {
 

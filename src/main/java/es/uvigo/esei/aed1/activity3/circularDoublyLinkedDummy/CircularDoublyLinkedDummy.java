@@ -45,8 +45,8 @@ public class CircularDoublyLinkedDummy {
     public int numberOfOccurrences(int value) {
         DoubleNode current = this.first.getNext();
         int count = 0;
-        while(current != this.first) {
-            if(current.hasValue(value)) {
+        while (current != this.first) {
+            if (current.hasValue(value)) {
                 count++;
             }
             current = current.getNext();
@@ -64,7 +64,7 @@ public class CircularDoublyLinkedDummy {
     public boolean contains(int value) {
         DoubleNode current = this.first.getNext();
 
-        while(current != this.first && !current.hasValue(value)) {
+        while (current != this.first && !current.hasValue(value)) {
             current = current.getNext();
         }
 
@@ -90,7 +90,7 @@ public class CircularDoublyLinkedDummy {
      */
     public void addLast(int value) {
         DoubleNode newNode = new DoubleNode(this.first.getPrevious(), value, this.first);
-        if(this.isEmpty()) {
+        if (this.isEmpty()) {
             this.first.setNext(newNode);
             this.first.setPrevious(newNode);
         } else {
@@ -107,11 +107,11 @@ public class CircularDoublyLinkedDummy {
      */
     public void remove(int value) {
         DoubleNode current = this.first.getNext();
-        while(current != this.first && !current.hasValue(value)) {
+        while (current != this.first && !current.hasValue(value)) {
             current = current.getNext();
         }
 
-        if(current.hasValue(value)) {
+        if (current.hasValue(value)) {
             current.getPrevious().setNext(current.getNext());
             current.getNext().setPrevious(current.getPrevious());
             this.elementsCount--;
@@ -128,9 +128,9 @@ public class CircularDoublyLinkedDummy {
         StringBuilder sb = new StringBuilder();
         sb.append("[");
         DoubleNode current = this.first.getNext();
-        while(current != this.first) {
+        while (current != this.first) {
             sb.append(current.getValue());
-            if(current.getNext() != this.first) {
+            if (current.getNext() != this.first) {
                 sb.append(", ");
             }
             current = current.getNext();

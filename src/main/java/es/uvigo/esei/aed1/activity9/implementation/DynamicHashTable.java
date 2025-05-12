@@ -43,7 +43,7 @@ public class DynamicHashTable<T> implements HashTable<T> {
     public boolean search(T elem) {
         int index = functionHash(elem);
 
-        if(data[index].contains(elem)) {
+        if (data[index].contains(elem)) {
             data[index].removeValue(elem);
             data[index].addFirst(elem);
             return true;

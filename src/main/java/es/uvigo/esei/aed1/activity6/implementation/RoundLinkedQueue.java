@@ -22,7 +22,7 @@ public class RoundLinkedQueue<T> implements CustomQueue<T> {
 
     @Override
     public T first() throws EmptyException {
-        if(this.isEmpty()) {
+        if (this.isEmpty()) {
             throw new EmptyException("Queue is empty");
         } else {
             return this.last.getNext().getValue();
@@ -31,11 +31,11 @@ public class RoundLinkedQueue<T> implements CustomQueue<T> {
 
     @Override
     public void add(T value) throws NullPointerException {
-        if(value == null) {
+        if (value == null) {
             throw new NullPointerException("Value is null");
         } else {
             Node<T> newNode = new Node<>(value, null);
-            if(this.isEmpty()) {
+            if (this.isEmpty()) {
                 this.last = newNode;
                 this.last.setNext(newNode);
             } else {
@@ -49,11 +49,11 @@ public class RoundLinkedQueue<T> implements CustomQueue<T> {
 
     @Override
     public T remove() throws EmptyException {
-        if(this.isEmpty()) {
+        if (this.isEmpty()) {
             throw new EmptyException("Queue is empty");
         } else {
             T value = this.last.getNext().getValue();
-            if(this.size == 1) {
+            if (this.size == 1) {
                 this.last = null;
             } else {
                 this.last.setNext(this.last.getNext().getNext());
