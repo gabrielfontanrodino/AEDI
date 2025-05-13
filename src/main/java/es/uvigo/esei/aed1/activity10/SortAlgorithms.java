@@ -23,13 +23,13 @@ public class SortAlgorithms {
             for (int i = start; i < end; i++) { // Se tiene en cuenta usando "start" y "end" que ya hay algunos elementos
                 // ordenados, reduciendo el número de iteraciones
                 int next = i + 1;
-                if (aux[i] > aux[next]) { //Si el elemento actual es mayor al siguiente, se intercambian
+                if (aux[i] > aux[next]) {       //Si el elemento actual es mayor al siguiente, se intercambian
                     int temp = aux[i];
 
                     aux[i] = aux[next];
                     aux[next] = temp;
 
-                    swapped = true; // Se ha hecho un intercambio
+                    swapped = true;             // Se ha hecho un intercambio
                 }
             }
             end--;  // Se reduce el número de iteraciones, ya que acabamos de ordenar el número en la posición "i"
@@ -38,13 +38,13 @@ public class SortAlgorithms {
             // Mover el elemento más pequeño hacia el inicio
             for (int i = end; i > start; i--) {
                 int prev = i - 1;
-                if (aux[i] < aux[prev]) { //Si el elemento actual es menor al anterior, se intercambian
+                if (aux[i] < aux[prev]) {       //Si el elemento actual es menor al anterior, se intercambian
                     int temp = aux[i];
 
                     aux[i] = aux[prev];
                     aux[prev] = temp;
 
-                    swapped = true; // Se ha hecho un intercambio
+                    swapped = true;             // Se ha hecho un intercambio
                 }
             }
             start++; // Se reduce el número de iteraciones, ya que acabamos de ordenar

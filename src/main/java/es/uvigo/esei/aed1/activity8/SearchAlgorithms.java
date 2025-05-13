@@ -86,6 +86,7 @@ public class SearchAlgorithms {
             } else if (aux[medio] > elem) {
                 fin = medio - 1;
             } else {
+                // 1 , 2 , 2 , 2 , 3
                 while (medio > 0 && aux[medio - 1] == elem) {
                     medio--;
                 }
@@ -104,10 +105,17 @@ public class SearchAlgorithms {
         while (inicio <= fin) {
             int medio = (inicio + fin) / 2;
 
-            if (aux[medio] <= elem) {
-                inicio = medio + 1;
+            if (aux[medio] < elem) { // Si el elemento medio es menor que elem, busco a la derecha
+                inicio = medio + 1; // Busco a la derecha (hacemos que ahora el inicio sea el siguiente a medio)
+            } else if (aux[medio] > elem) { // Si el elemento medio es mayor que elem, busco a la izquierda
+                fin = medio - 1; // Busco a la izquierda (hacemos que ahora el fin sea el anterior a medio)
             } else {
-                fin = medio - 1;
+                // 1 , 2 , 2 , 2 , 3
+                while (medio < aux.length && aux[medio] == elem) { //Mientras no llegue al final del array
+                    // y el elemento medio sea igual a elem
+                    medio++;
+                }
+                return aux.length - medio;
             }
         }
 
@@ -136,14 +144,14 @@ public class SearchAlgorithms {
     public static int searchInsertionDec(int[] aux, int elem, int max) {
         int inicio = 0;
         int fin = max - 1;
-        int medio = 0;
+
 
         while (inicio <= fin) {
-            medio = (inicio + fin) / 2;
+            int medio = (inicio + fin) / 2;
 
             if (aux[medio] == elem) {
                 return medio;
-            } else if(aux[medio] > elem) {
+            } else if (aux[medio] > elem) {
                 inicio = medio + 1;
             } else {
                 fin = medio - 1;
