@@ -55,15 +55,18 @@ public class SortAlgorithms {
     public static void shellSort(int[] aux) {
         int distancia = aux.length >> 1;
         int temp;
+
         while (distancia > 0) {
             for (int i = distancia; i < aux.length; i++) {
                 int anterior = i - distancia;
+
                 while (anterior >= 0 && aux[anterior] > aux[anterior + distancia]) {
                     temp = aux[anterior + distancia];
                     aux[anterior + distancia] = aux[anterior];
                     aux[anterior] = temp;
                     anterior -= distancia;
                 }
+
             }
             distancia = distancia >> 1;
         }

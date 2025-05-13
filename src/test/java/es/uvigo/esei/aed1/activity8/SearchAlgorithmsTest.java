@@ -54,7 +54,28 @@ public class SearchAlgorithmsTest {
                 {2, 2, 2, 2, 2, 3, 3, 3, 3, 3},
                 {2, 2, 2, 2, 2, 2, 2, 3, 2, 2},
                 {2, 2, 2, 2, 2, 2, 2, 3, 2, 2}};
+
+        //Print the original matrix
+
+        System.out.println("Original matrix:");
+        for (int[] ints : aux3) {
+            for (int j = 0; j < aux3[0].length; j++) {
+                System.out.print(ints[j] + " ");
+            }
+            System.out.println();
+        }
+
         SearchAlgorithms.fillIn(aux3, xPosition, yPosition, newColor);
+
+        //Print the modified matrix
+        System.out.println("Modified matrix:");
+        for (int[] ints : aux3) {
+            for (int j = 0; j < aux3[0].length; j++) {
+                System.out.print(ints[j] + " ");
+            }
+            System.out.println();
+        }
+
         assertTrue(equalMatrices(aux3, result));
     }
 
@@ -83,6 +104,7 @@ public class SearchAlgorithmsTest {
         int elem = 15;
         int expResult = 2;
         int result = SearchAlgorithms.howManyMinors(aux1, elem);
+
         assertEquals(expResult, result);
     }
 
@@ -102,6 +124,7 @@ public class SearchAlgorithmsTest {
         int elem = 15;
         int expResult = 3;
         int result = SearchAlgorithms.howManyOlder(aux1, elem);
+
         assertEquals(expResult, result);
     }
 
@@ -152,6 +175,11 @@ public class SearchAlgorithmsTest {
         int max = 6;
         int expResult = 4;
         int result = SearchAlgorithms.searchInsertionDec(aux2, elem, max);
+
+        for (int j : aux2) {
+            System.out.print(j + " " );
+        }
+
         assertEquals(expResult, result);
     }
 
