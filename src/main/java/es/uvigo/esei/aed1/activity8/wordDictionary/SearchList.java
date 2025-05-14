@@ -9,7 +9,7 @@ public class SearchList {
         int right = listD.size() - 1;
 
         while (left <= right) {
-            int mid = (right - left) / 2;
+            int mid = (right + left) / 2;
             String midWord = listD.get(mid);
 
             if (midWord.equals(word)) {
@@ -29,15 +29,15 @@ public class SearchList {
         int right = dictionary.size() - 1;
 
         while (left <= right) {
-            int mid = (right - left) / 2;
+            int mid = (right + left) / 2;
             WordDictionary midWordDictionary = dictionary.get(mid);
 
             if (midWordDictionary.getLetter() == word.charAt(0)) {
                 return midWordDictionary.getWordsList();
             } else if (midWordDictionary.getLetter() < word.charAt(0)) {
-                left = mid + 1;
-            } else {
                 right = mid - 1;
+            } else {
+                left = mid + 1;
             }
         }
 
@@ -46,9 +46,10 @@ public class SearchList {
 
     //Exercise 8
     public static boolean dictionarySearch(List<WordDictionary> dictionary, String word) {
-
-
-
+        List<String> wordsList = binaryDictionarySearch(dictionary, word);
+        if (wordsList != null) {
+            return binarySearchListContainsWord(wordsList, word);
+        }
         return false;
     }
 }
