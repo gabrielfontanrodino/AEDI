@@ -8,6 +8,50 @@ import java.util.List;
 
 public class SortAlgorithms {
 
+    public static void insertionSort(int[] aux) {
+        for (int i = 1; i < aux.length; i++) {
+            int elem = aux[i];
+            int j = i - 1;
+
+            while (j >= 0 && elem < aux[j]) {
+                aux[j + 1] = aux[j--];
+            }
+            aux[j + 1] = elem;
+        }
+    }
+
+    public static void ordenacionBurbuja(int[] aux) {
+        for (int pasada = 0; pasada < aux.length - 1; pasada++) {  //Si son n elementos, se hacen n-1 pasadas
+            for (int j = 0; j < ((aux.length - 1) - pasada); j++) {
+                if (aux[j] > aux[j + 1]) {
+                    int temp = aux[j];
+                    aux[j] = aux[j + 1];
+                    aux[j + 1] = temp;
+                }
+            }
+        }
+    }
+
+    public static void ordenacionBurbujaMejorada(int[] aux) {
+        boolean noOrdenados = true;
+        int pasada = 0;
+        while ((noOrdenados) && (pasada < aux.length - 1)) {
+
+            noOrdenados = false;
+
+            for (int j = 0; j < (aux.length - pasada - 1); j++) {
+                if (aux[j] > aux[j + 1]) {
+                    int temp = aux[j];
+                    aux[j] = aux[j + 1];
+                    aux[j + 1] = temp;
+                    noOrdenados = true;
+                }
+            }
+
+            pasada++;
+        }
+    }
+
     //Exercise 1
     public static void bubbleSort2(int[] aux) {
         boolean swapped;            // Indicar si se ha hecho un intercambio
@@ -82,7 +126,7 @@ public class SortAlgorithms {
 
     public static void radixSort(int[] numbers) {
 
-        Queue<Integer>[] queues = new Queue[10];
+        Queue<Integer>[] queues = (Queue<Integer>[]) new Queue[10];
 
         for (int i = 0; i < 10; i++) {
             queues[i] = new LinkedQueue<>();
